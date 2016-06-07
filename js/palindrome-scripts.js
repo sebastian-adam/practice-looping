@@ -36,23 +36,29 @@ $(document).ready(function() {
     var phrase = $("#phrase").val();
     var phraseSpaceless = phrase.split('');
 
-    // alert(phraseSpaceless); --> array is split into characters
+    console.log(phraseSpaceless);
+    // --> array is split into characters
 
     phraseSpaceless = phraseSpaceless.filter(function(x){
       return /\S/.test(x);
     });
 
-    alert(phraseSpaceless);
+    console.log(phraseSpaceless);
     // --> array is split into characters, spaces removed
 
     var phraseSpacelessFlip = phraseSpaceless.reverse().join('');
+
+    console.log(phraseSpacelessFlip);
+    // --> array is reversed and joined
+    console.log(phraseSpaceless);
+    // --> array is also reversed b/c .reverse acts upon attached array, but .join only assigns a string to the new variable
+
     phraseSpaceless = phraseSpaceless.reverse().join('');
 
-    alert(phraseSpacelessFlip);
-    // --> array is reversed and joined
-    alert(phraseSpaceless);
-    // --> array is reversed twice and joined
-
+    console.log(phraseSpacelessFlip);
+    // --> array is unchanged
+    console.log(phraseSpaceless);
+    // --> array is reversed again and joined
 
     function palindromeChecker(x, y) {
       if (x === "") {
@@ -64,9 +70,6 @@ $(document).ready(function() {
         alert("That's NOT a palindrome!")
       }
     };
-
-    alert(phraseSpacelessFlip);
-    alert(phraseSpaceless);
 
     palindromeChecker(phraseSpaceless, phraseSpacelessFlip);
   });
